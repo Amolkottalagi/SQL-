@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="settings" data-title="Settings" data-access="user">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<div class="grid cols-2">
+<div>
+  <section class="card"><h2>Preferences</h2>
+    <form id="prefs-form" novalidate>
+      <div class="field"><label for="default-chart">Default result view</label>
+        <select id="default-chart"><option value="none">Table only</option><option value="bar">Bar chart</option><option value="line">Line chart</option><option value="pie">Pie chart</option></select>
+        <div class="hint">Used when a result can be charted. You can switch views on each result.</div></div>
+      <div class="field"><label for="theme">Theme</label><select id="theme"><option value="light">Light</option><option value="dark">Dark</option></select></div>
+      <div class="field"><label for="rows">Rows per page</label><input type="number" id="rows" min="5" max="500" step="5"></div>
+      <button class="btn btn-primary" id="prefs-save" type="submit">Save preferences</button>
+    </form></section>
+  <section class="card"><h2>Account</h2><p class="muted" id="acct"></p></section>
+</div>
+<div>
+  <section class="card"><h2>Change password</h2>
+    <div id="pw-msg" class="hidden" role="status"></div>
+    <form id="pw-form" novalidate>
+      <div class="field"><label for="pw-old">Current password</label><input type="password" id="pw-old" autocomplete="current-password" maxlength="72"></div>
+      <div class="field"><label for="pw-new">New password</label><input type="password" id="pw-new" autocomplete="new-password" maxlength="72"><div class="hint">At least 8 characters.</div></div>
+      <div class="field"><label for="pw-new2">Confirm new password</label><input type="password" id="pw-new2" autocomplete="new-password" maxlength="72"></div>
+      <button class="btn btn-primary" id="pw-save" type="submit">Change password</button>
+    </form></section>
+  <section class="card danger-zone"><h2>Delete account</h2>
+    <p class="muted">Removes your login, settings and saved queries. Your past questions are kept anonymously for research, as agreed at sign-up. If you have payments, your record is anonymised and disabled instead so invoices stay intact.</p>
+    <div class="field"><label for="del-pw">Your password</label><input type="password" id="del-pw" autocomplete="current-password" maxlength="72"></div>
+    <button class="btn btn-danger" id="delete-btn" type="button">Delete my account</button></section>
+</div>
+</div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/settings.js" defer></script>
+</body>
+</html>

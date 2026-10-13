@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin dashboard · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="admin" data-title="Admin dashboard" data-access="admin">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<div class="tabs" role="tablist">
+  <button class="tab active" role="tab" aria-selected="true" data-tab="overview" type="button">Overview</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="users" type="button">Users</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="payments" type="button">Payments</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="prompts" type="button">Prompts &amp; examples</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="logs" type="button">Logs</button>
+</div>
+<div data-pane="overview">
+  <div class="grid cols-3" id="ov-stats"></div>
+  <div class="grid cols-2 mt">
+    <div class="card"><h3>Questions by final status</h3><div id="ov-status"></div></div>
+    <div class="card"><h3>Negative feedback reasons</h3><div id="ov-reasons"></div></div>
+    <div class="card"><h3>Tokens per day</h3><div id="ov-tokens"></div></div>
+    <div class="card"><h3>Queries per day</h3><div id="ov-queries"></div></div>
+  </div>
+  <div class="card mt"><h3>Most active users</h3><div id="ov-top"></div></div>
+</div>
+<div data-pane="users" class="hidden">
+  <div class="mb"><input type="search" id="user-search" aria-label="Search users" placeholder="Search by username or email..." maxlength="100"></div>
+  <div id="users"></div>
+</div>
+<div data-pane="payments" class="hidden"><div id="payments"></div></div>
+<div data-pane="prompts" class="hidden">
+  <div class="card"><div class="row between mb"><h3>Prompt templates</h3><button class="btn btn-sm btn-primary" id="new-template" type="button">+ New template</button></div>
+    <p class="muted small">The active template is used for every question. Few-shot templates receive the active examples below.</p><div id="templates"></div></div>
+  <div class="card mt"><div class="row between mb"><h3>Few-shot examples</h3><button class="btn btn-sm btn-primary" id="new-example" type="button">+ New example</button></div><div id="examples"></div></div>
+</div>
+<div data-pane="logs" class="hidden">
+  <div class="mb"><select id="log-kind" aria-label="Log type"><option value="errors">Errors (AI, database, app)</option><option value="blocked">Blocked queries</option><option value="audit">Admin audit trail</option></select></div>
+  <div id="logs"></div>
+</div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/admin.js" defer></script>
+</body>
+</html>

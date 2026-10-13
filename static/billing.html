@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plans & billing · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="billing" data-title="Plans & billing" data-access="user">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<div class="tabs" role="tablist">
+  <button class="tab active" role="tab" aria-selected="true" data-tab="plans" type="button">Plans &amp; token packs</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="history" type="button">Payment history</button>
+</div>
+<div id="pane-plans">
+  <div id="demo-note" class="banner warn hidden">Demo payments are on: checkout is simulated, no real money moves. Add Razorpay keys to take real payments.</div>
+  <h2>Plans</h2>
+  <div class="grid cols-2" id="plans"></div>
+  <h2 class="mt">Token packs</h2>
+  <p class="muted">One-off top-ups, used once your daily allowance is gone.</p>
+  <div class="grid cols-3" id="packs"></div>
+</div>
+<div id="pane-history" class="hidden"><div id="payments"></div></div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/billing.js" defer></script>
+</body>
+</html>

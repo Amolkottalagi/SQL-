@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="chat" data-title="Chat" data-access="user">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<div class="chat-layout">
+  <aside class="card chat-list" aria-label="Your chats">
+    <div class="row between mb"><h3>Chats</h3><button class="btn btn-sm" id="new-chat" type="button">+ New</button></div>
+    <div id="sessions"></div>
+  </aside>
+  <section>
+    <div id="demo-banner" class="banner hidden"></div>
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div class="composer">
+      <div id="chips" class="chips" aria-label="Example questions"></div>
+      <form id="ask-form" class="box">
+        <div class="grow"><textarea id="question" maxlength="500" rows="2" aria-label="Your question" placeholder="Ask a question about your data..."></textarea></div>
+        <button class="btn btn-primary" id="ask-btn" type="submit">Ask</button>
+      </form>
+      <div class="hint">Enter to send · Shift+Enter for a new line · <span id="charcount">0/500</span></div>
+    </div>
+  </section>
+</div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/chat.js" defer></script>
+</body>
+</html>

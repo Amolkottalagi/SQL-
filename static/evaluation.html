@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="evaluation" data-title="Evaluation" data-access="admin">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<p class="muted">Measure how often the model's SQL returns the same rows as a known-correct query, for different prompting strategies.</p>
+<div id="demo-note" class="banner warn hidden">Demo AI is active: it ignores the prompt, so zero-shot and few-shot will score the same. Set GEMINI_API_KEY for a meaningful comparison.</div>
+<div class="card">
+  <h2>Run an experiment</h2>
+  <div class="row">
+    <div><label for="strategy">Strategy</label><select id="strategy"><option value="zero_shot">Zero-shot (no examples)</option><option value="few_shot">Few-shot (with examples)</option></select></div>
+    <div><label for="k">Examples (few-shot)</label><input type="number" id="k" min="1" max="10" value="3"></div>
+    <div><label>&nbsp;</label><button class="btn btn-primary" id="run-btn" type="button">Run experiment</button></div>
+    <div id="run-status" class="muted" role="status"></div>
+  </div>
+  <p class="hint">Each run asks the model every test question once (no automatic retry) and compares the rows it returns with the correct query's rows. Column names are ignored.</p>
+</div>
+<div class="grid cols-2 mt">
+  <div class="card"><h3>Accuracy by run</h3><div id="acc-chart"></div></div>
+  <div class="card"><h3>Runs</h3><div id="runs"></div></div>
+</div>
+<div id="detail" class="card mt hidden">
+  <h2 id="detail-title"></h2>
+  <div class="grid cols-3 mb" id="detail-stats"></div>
+  <div class="card"><h3>Accuracy by difficulty</h3><div id="diff-chart"></div></div>
+  <h3 class="mt">Question by question</h3><div id="details"></div>
+</div>
+<div class="card mt">
+  <div class="row between mb"><h2>Test questions <span class="muted small" id="q-count"></span></h2><button class="btn btn-sm btn-primary" id="add-q" type="button">+ Add question</button></div>
+  <div id="questions"></div>
+</div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/evaluation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+fastapi>=0.110
+uvicorn>=0.29
+mysql-connector-python>=8.4
+bcrypt>=4.1
+httpx>=0.27
+# Only needed when you set GEMINI_API_KEY (the built-in demo mode works without it):
+google-genai>=1.0
+# Only for the tests:
+pytest>=8.0

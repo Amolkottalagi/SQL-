@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About & help · SQL LLM</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/theme.js"></script>
+</head>
+<body data-page="about" data-title="About & help" data-access="public">
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+<div class="main">
+<header class="topbar" id="topbar"></header>
+<main class="page" id="page">
+
+<div class="grid cols-2">
+<section class="card"><h2>What is this?</h2>
+<p>SQL LLM lets you ask questions about a database in plain English. A language model writes a SQL query, the app checks it for safety, runs it, and shows you the query and the result, as a table or a chart.</p>
+<p>It was built as a project on natural-language-to-SQL, comparing prompting strategies (zero-shot and few-shot) with an Evaluation page for researchers.</p></section>
+<section class="card"><h2>How a question is answered</h2>
+<ol>
+<li>Your question is checked against your daily plan limits.</li>
+<li>The database structure (and a few sample rows) is sent to the AI with your question.</li>
+<li>The AI replies with one SQL query and a short explanation, or asks you for clarification.</li>
+<li>The query is checked: only a single read-only <code>SELECT</code> is allowed. It then runs on a read-only database account with a time limit and row cap.</li>
+<li>If the query fails, the AI gets one chance to fix it automatically.</li>
+</ol></section>
+<section class="card"><h2>Tips for good questions</h2>
+<ul><li>Name the thing you want counted or listed: "Total revenue per product".</li><li>Add a time range or filter if you need one: "Orders in July".</li><li>If an answer looks wrong, press 👎 and say why. It helps improve the prompts.</li><li>Past queries can be re-run for free from History or Saved queries.</li></ul></section>
+<section class="card"><h2>Privacy</h2>
+<ul><li>Your questions and the SQL generated for them are stored so you can see your history, and for research on query quality.</li><li>The question, the database structure and a few sample rows are sent to the AI provider. Query results are not.</li><li>Passwords are stored only as salted hashes.</li><li>When you delete your account, your login and settings are removed. Your past questions stay in the system without your name.</li></ul></section>
+</div>
+</main>
+</div>
+</div>
+<noscript><p class="page">This app needs JavaScript enabled.</p></noscript>
+<script src="/static/js/app.js" defer></script>
+<script src="/static/js/about.js" defer></script>
+</body>
+</html>
